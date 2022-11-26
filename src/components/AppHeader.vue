@@ -34,7 +34,7 @@
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
 
     .main-nav {
         ul {
