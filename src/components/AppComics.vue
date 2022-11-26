@@ -9,4 +9,5 @@ export default {
   <h1>{{ msg }}</h1>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss">
+</style>
