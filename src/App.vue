@@ -1,17 +1,23 @@
 <script>
 
-import AppComics from './components/AppComics.vue'
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 
 export default {
   components: {
-    AppComics
+    AppHeader,
+    AppMain,
+    AppFooter,
   }
 }
 </script>
 
 <template>
   <div>
-    <AppComics msg=""/>
+    <AppHeader/>
+    <AppMain/>
+    <AppFooter/>
   </div>
 </template>
 
