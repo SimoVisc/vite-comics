@@ -1,17 +1,21 @@
 <script>
+    import SectionSeries from './SectionSeries.vue';
     export default {
     name: "AppMain",
+    components: {
+        SectionSeries
+    }
    }
 </script>
 
 <template>
     <main>
-      <div class="container-top">
-            <div class="container ">
-                <h1> --Content goes here--></h1>
-            </div>
+      <div class="container-main-top"> 
+      </div>
+      <div class="container-main-center"> 
+         <SectionSeries/>
       </div> 
-      <div class="container-bottom">
+      <div class="container-main-bottom">
             <div class="container ">
                 <ul>
                     <li>
@@ -40,11 +44,13 @@
    </main>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+ @use'../style/partials/mixin.scss' as *;
 main{
-    padding: 30px;
-    .container-top{
-        background-color: var(--secondary-color);
+    .container-main-top{
+        @include bg-img('../assets/img/jumbotron.jpg');
+        height:300px;
+        
        .container{
         padding: 40px 0;
            h1{
@@ -52,7 +58,10 @@ main{
             }
         }
     }
-    .container-bottom{
+    .container-main-center{
+        background-color: var(--secondary-color) ;
+     }
+    .container-main-bottom{
         background-color: var(--primary-color);
         .container{
             ul {
