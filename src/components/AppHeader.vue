@@ -5,24 +5,89 @@
         name: "AppHeader",
         components:{
             AppLogo
-        }
-    }
+        },
+        data() {
+                return {
+                links: [
+                    {
+                    href: "#",
+                    label: "CHARACTERS",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "COMICS",
+                    active: true,
+                    },
+                    {
+                    href: "#",
+                    label: "MOVIES",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "TV",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "GAMES",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "COLLECTIBLES",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "VIDEOS",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "FANS",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "NEWS",
+                    active: false,
+                    },
+                    {
+                    href: "#",
+                    label: "SHOP",
+                    active: false,
+                    },
+                ],
+                };
+            },
+            methods: {
+                changeLink(index) {
+                this.links.forEach((elm, i) => {
+                    if (i === index) {
+                    elm.active = true;
+                    } else {
+                    elm.active = false;
+                    }
+                });
+            },
+        },
+    };
 </script>
+ 
 <template>
   <header class="container">
      <AppLogo/>
      <nav class="main-nav">
             <ul>
-                <li><strong><a href="">CHARACTERS</a></strong></li>
-                <li><strong><a class="active" href="">COMICS</a></strong></li>
-                <li><strong><a href="">MOVIES</a></strong></li>
-                <li><strong><a href="">TV</a></strong></li>
-                <li><strong><a href="">GAMES</a></strong></li>
-                <li><strong><a href="">COLLECTIBLES</a></strong></li>
-                <li><strong><a href="">VIDEOS</a></strong></li>
-                <li><strong><a href="">FANS</a></strong></li>
-                <li><strong><a href="">NEWS</a></strong></li>
-                <li><strong><a href="">SHOP</a></strong></li>
+                <li v-for=" (item,index) in links">
+                    <a 
+                    :class="{active: item.active}" 
+                    :href= "item.href" 
+                    @click.prevent="changeLink(index)"
+                    >{{item.label}}</a>
+                </li>
             </ul>
       </nav>
   </header>
@@ -45,6 +110,7 @@
             margin: 10px;
             padding: 40px 0;
             font-size: 80%;
+            color:#000;
             text-decoration: none;
             &.active{
                 border-bottom: var(--primary-color) solid 4px ;
