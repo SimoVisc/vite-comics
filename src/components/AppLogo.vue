@@ -8,5 +8,6 @@
   <img src="../assets/img/dc-logo.png" alt="logo">
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
+
 </style>

@@ -1,6 +1,11 @@
 <script>
+import AppCard from './AppCard.vue';
+
 export default{
 name: 'SectionSerie',
+components: {
+    AppCard
+},
 data(){
     return{
       series: [
@@ -86,11 +91,12 @@ data(){
     <section class="container">
         <h3 class="title">CURRENT SERIES</h3>
         <div class="series">
-            <div class="serie" v-for="serie in series">
-                <img 
-                :src="serie.thumb" alt="serie.img">
-                <h3>{{serie.series}}</h3>
-            </div>
+                <AppCard
+                class="serie"
+                v-for="serie in series"
+                :img="serie.thumb"
+                :title="serie.series"
+                />
         </div>
     </section>
 
@@ -107,15 +113,6 @@ section{
     flex-wrap: wrap;
     width:100%;
     justify-content: center;
-    .serie{
-    width:15%;
-    margin:5px;
-    img{
-        width:80%
-    }
 }
 }
-
-}
-
 </style>
